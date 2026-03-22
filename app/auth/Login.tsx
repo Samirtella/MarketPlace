@@ -16,15 +16,21 @@ import {
 import { Label } from "~/components/ui/label";
 import { Checkbox } from "~/components/ui/checkbox";
 import { Separator } from "~/components/ui/separator";
+import { useNavigate } from "react-router";
 
 const Login = () => {
+  const navigate = useNavigate ()
   return (
     <div>
-      <header className="bg-[#FBFFFC] shadow relative p-5">
-        <div className="flex justify-between ">
-          <h1 className="text-[#1DC956] text-2xl font-bold pl-30 font-sans">
+      <header className="bg-[#FBFFFC] shadow relative p-5 h-30">
+        <div className="flex justify-between items-center  ">
+          <div className="flex pl-30 items-center">
+            <img src="../images/Logo_agricole.png" alt="" className="w-25 h-25 " />
+          <h1 className="text-[#1DC956] text-2xl font-bold  font-sans">
             AgriConnect
           </h1>
+          </div>
+            
           <div className="flex gap-4 pr-30">
             <Button variant="ghost" className="cursor-pointer ">
               {" "}
@@ -32,7 +38,8 @@ const Login = () => {
             </Button>
             <Button
               variant="default"
-              className="bg-[#1DC956] text-black cursor-pointer px-6 "
+              className="bg-[#1DC956] text-black cursor-pointer px-6 hover:bg-green-600 "
+              onClick={()=>navigate("../inscription")}
             >
               S'incrire
             </Button>
@@ -128,7 +135,7 @@ const Login = () => {
             <Separator className="mt-6 " />
             <p className="text-center w-full p-2 text-gray-500">
               Vous n'avez pas de compte ?{" "}
-              <span className="text-[#1DC956] cursor-pointer">
+              <span className="text-[#1DC956] cursor-pointer" onClick={()=>navigate("../inscription")}>
                 S'inscrire
               </span>{" "}
             </p>
